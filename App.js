@@ -20,15 +20,27 @@ export default class App extends React.Component {
     return (
       <Card
         key={item.id}
-        title={item.tex}
+        title={item.text}
         image={{ uri: item.uri }}
       >
-        <Text>I can customize the card</Text>
+        <Text>Lets customize this Card</Text>
         <Button 
           icon={{ name:'code' }} 
           backgroundColor="#03A9F4"
           title="View now"
+          onPress={()=>{}}
         />
+      </Card>
+    );
+  }
+
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done">
+        <Text style={{marginBottom: 10}} > 
+          There is no more content!
+        </Text>
+        <Button title="Get More!"></Button>
       </Card>
     );
   }
@@ -39,6 +51,7 @@ export default class App extends React.Component {
         <Deck 
           data={DATA}
           renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );
